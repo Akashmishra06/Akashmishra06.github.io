@@ -1,0 +1,232 @@
+.experience {
+  padding: 8rem 4rem;
+  background: var(--black-soft);
+  position: relative;
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+.experience__inner { max-width: 1200px; margin: 0 auto; }
+
+.experience__header { margin-bottom: 4rem; }
+
+.experience__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+.experience__heading-gold { color: var(--gold); }
+
+.experience__layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.experience__col-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.experience__col-icon { font-size: 0.55rem; }
+
+/* Work item */
+.exp-item {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-left: 2px solid var(--gold-dim);
+  border-radius: 2px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.exp-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-item__role {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.exp-item__company {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
+.exp-item__meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.exp-item__period {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--white-dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.exp-item__type {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  border: 1px solid var(--black-border);
+  padding: 0.2rem 0.5rem;
+  border-radius: 1px;
+}
+
+.exp-item__points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.exp-item__points li {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--white-dim);
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.exp-item__bullet {
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.exp-item__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.exp-item__skills span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 0.25rem 0.6rem;
+  border-radius: 1px;
+}
+
+/* Education */
+.edu-item {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: 2px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.edu-item__degree {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.edu-item__school {
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+
+.edu-item__period {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--white-muted);
+  margin-bottom: 0.4rem;
+}
+
+.edu-item__note {
+  font-size: 0.8rem;
+  color: var(--white-dim);
+  font-style: italic;
+}
+
+/* Certifications */
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: 2px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s;
+}
+.cert-item:hover { border-color: var(--gold-dim); }
+
+.cert-item__name {
+  font-size: 0.9rem;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.cert-item__issuer {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--white-muted);
+  letter-spacing: 0.06em;
+}
+
+.cert-item__verify {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-dim);
+  text-decoration: none;
+  margin-top: 0.25rem;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.cert-item__verify:hover { color: var(--gold); }
+
+.cert-item__year {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .experience { padding: 5rem 1.5rem; }
+  .experience__layout { grid-template-columns: 1fr; gap: 2rem; }
+}

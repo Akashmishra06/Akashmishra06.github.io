@@ -1,0 +1,122 @@
+.skills {
+  padding: 8rem 4rem;
+  background: var(--black-soft);
+  position: relative;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+.skills__inner { max-width: 1200px; margin: 0 auto; }
+
+.skills__header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.skills__header .section-label { justify-content: center; display: flex; }
+.skills__header .gold-line { margin: 0 auto 2.5rem; }
+
+.skills__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.skills__heading-gold { color: var(--gold); }
+
+.skills__sub {
+  color: var(--white-dim);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.skills__card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: 3px;
+  padding: 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.skills__card:hover {
+  border-color: var(--gold-dim);
+  transform: translateY(-3px);
+}
+
+.skills__card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.skills__card-icon {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold);
+  width: 36px;
+  text-align: center;
+  line-height: 1;
+}
+
+.skills__card-cat {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+
+/* Skill bars */
+.skills__bars { display: flex; flex-direction: column; gap: 1.1rem; }
+
+.skill-bar-row {}
+
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  color: var(--white);
+}
+
+.skill-pct {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+}
+
+.skill-bar-track {
+  height: 2px;
+  background: var(--black-border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  border-radius: 1px;
+  transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 768px) {
+  .skills { padding: 5rem 1.5rem; }
+  .skills__grid { grid-template-columns: 1fr; }
+}

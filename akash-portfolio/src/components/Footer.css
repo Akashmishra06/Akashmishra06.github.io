@@ -1,0 +1,118 @@
+.footer {
+  background: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+  padding: 3rem 4rem 2rem;
+}
+
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* Logo + name */
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.footer__logo-a { color: var(--gold); }
+.footer__logo-m { color: var(--white); }
+
+.footer__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.footer__role {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--white-muted);
+}
+
+/* Center ticker */
+.footer__center { flex: 1; min-width: 200px; }
+
+.footer__ticker-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+}
+
+.footer__ticker-line span { padding: 0 0.5rem; }
+
+.footer__dot { color: var(--gold); font-size: 0.4rem; vertical-align: middle; }
+
+/* Social icons */
+.footer__right {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.footer__social {
+  width: 36px; height: 36px;
+  border: 1px solid var(--black-border);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--white-dim);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.footer__social:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Bottom bar */
+.footer__bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--black-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--white-muted);
+  flex-wrap: wrap;
+}
+
+.footer__built { opacity: 0.6; }
+
+@media (max-width: 768px) {
+  .footer { padding: 2.5rem 1.5rem 1.5rem; }
+  .footer__inner { flex-direction: column; gap: 1.5rem; }
+  .footer__right { flex-direction: row; }
+}
