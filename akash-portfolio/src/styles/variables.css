@@ -1,0 +1,55 @@
+/* ─────────────────────────────────────────────────────────────
+   Design Tokens — single source of truth for all CSS variables
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --black:        #080808;
+  --black-soft:   #111111;
+  --black-card:   #161616;
+  --black-border: #222222;
+  --gold:         #C9A84C;
+  --gold-light:   #E8C96A;
+  --gold-dim:     #8A6A28;
+  --gold-glow:    rgba(201, 168, 76, 0.18);
+  --white:        #F5F0E8;
+  --white-dim:    #A09880;
+  --white-muted:  #4A4540;
+  --green:        #4ade80;
+  --green-glow:   rgba(74, 222, 128, 0.5);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-mono:    'DM Mono', monospace;
+  --font-sans:    'Syne', sans-serif;
+
+  /* Spacing scale */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  2rem;
+  --space-xl:  4rem;
+  --space-2xl: 8rem;
+
+  /* Section padding */
+  --section-pad-x: clamp(1.5rem, 5vw, 4rem);
+  --section-pad-y: clamp(4rem, 8vw, 8rem);
+
+  /* Container */
+  --container: 1200px;
+
+  /* Transitions */
+  --transition-fast:   0.2s ease;
+  --transition-base:   0.3s ease;
+  --transition-slow:   0.7s ease;
+
+  /* Border radius */
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 6px;
+
+  /* Z-index layers */
+  --z-base:    1;
+  --z-above:   2;
+  --z-navbar: 1000;
+  --z-overlay: 1100;
+}

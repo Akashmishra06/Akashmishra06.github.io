@@ -8,7 +8,31 @@ main {
   flex: 1;
 }
 
-/* Smooth anchor offset for fixed navbar */
+/* Smooth anchor offset — accounts for fixed navbar height */
 section[id] {
   scroll-margin-top: 80px;
+}
+
+/* Accessibility: skip-to-content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  z-index: var(--z-overlay);
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Ultra-wide screens — cap content width gracefully */
+@media (min-width: 1600px) {
+  .container { max-width: 1400px; }
 }

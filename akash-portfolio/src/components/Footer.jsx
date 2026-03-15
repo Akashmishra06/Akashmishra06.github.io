@@ -1,40 +1,46 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { PERSONAL, SOCIAL, FOOTER_SKILLS } from '../constants/data';
 import './Footer.css';
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+const YEAR = new Date().getFullYear();
+
+export default memo(function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer__inner">
+    <footer className="footer" role="contentinfo">
+      <div className="footer__inner container">
         <div className="footer__left">
-          <span className="footer__logo">
-            <span className="footer__logo-a">A</span>
-            <span className="footer__logo-m">M</span>
+          <span className="footer__logo" aria-label={`${PERSONAL.name} logo`}>
+            <span className="footer__logo-a" aria-hidden="true">A</span>
+            <span className="footer__logo-m" aria-hidden="true">M</span>
           </span>
-          <span className="footer__name">Akash Mishra</span>
-          <span className="footer__role">Quantitative Developer · Mudraksh &amp; McShaw Tech LLP</span>
+          <span className="footer__name">{PERSONAL.name}</span>
+          <span className="footer__role">{PERSONAL.role} · {PERSONAL.company}</span>
         </div>
 
-        <div className="footer__center">
+        <div className="footer__center" aria-hidden="true">
           <div className="footer__ticker-line">
-            {['PYTHON', 'C++', 'REACT', 'FLASK', 'MONGODB', 'ALGO TRADING', 'ML', 'REAL-TIME RMS', 'BACKTESTING'].map((t, i) => (
+            {FOOTER_SKILLS.map((t, i) => (
               <span key={i}>{t} <span className="footer__dot">◆</span></span>
             ))}
           </div>
         </div>
 
-        <div className="footer__right">
-          <a href="https://linkedin.com/in/akashmishra0601" target="_blank" rel="noreferrer" className="footer__social">LI</a>
-          <a href="https://github.com/Akashmishra06"         target="_blank" rel="noreferrer" className="footer__social">GH</a>
-          <a href="https://leetcode.com/u/AkashMishra06/"    target="_blank" rel="noreferrer" className="footer__social">LC</a>
-          <a href="mailto:akashmishra.py@gmail.com"           className="footer__social">✉</a>
-        </div>
+        <nav className="footer__right" aria-label="Social links">
+          <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer"
+             className="footer__social" aria-label="LinkedIn profile">LI</a>
+          <a href={SOCIAL.github}   target="_blank" rel="noopener noreferrer"
+             className="footer__social" aria-label="GitHub profile">GH</a>
+          <a href={SOCIAL.leetcode} target="_blank" rel="noopener noreferrer"
+             className="footer__social" aria-label="LeetCode profile">LC</a>
+          <a href={SOCIAL.email}
+             className="footer__social" aria-label="Send email">✉</a>
+        </nav>
       </div>
 
-      <div className="footer__bottom">
-        <span>© {year} Akash Mishra. All rights reserved.</span>
+      <div className="footer__bottom container">
+        <span>© {YEAR} {PERSONAL.name}. All rights reserved.</span>
         <span className="footer__built">Built with React · Deployed on GitHub Pages</span>
       </div>
     </footer>
   );
-}
+});

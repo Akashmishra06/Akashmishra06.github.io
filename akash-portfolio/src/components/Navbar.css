@@ -1,24 +1,25 @@
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 1000;
+  z-index: var(--z-navbar);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem 4rem;
-  transition: background 0.4s, padding 0.4s, border-bottom 0.4s;
+  padding: 1.6rem var(--section-pad-x);
+  transition: background var(--transition-slow), padding 0.4s ease, border-bottom 0.4s ease;
   border-bottom: 1px solid transparent;
 }
 
 .navbar--scrolled {
-  background: rgba(8,8,8,0.92);
-  backdrop-filter: blur(12px);
-  padding: 1rem 4rem;
+  background: rgba(8, 8, 8, 0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1rem var(--section-pad-x);
   border-bottom-color: var(--black-border);
 }
 
+/* Logo */
 .navbar__logo {
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 1px;
@@ -27,15 +28,17 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1;
+  transition: opacity var(--transition-fast);
 }
+.navbar__logo:hover { opacity: 0.85; }
 .navbar__logo-a { color: var(--gold); }
 .navbar__logo-m { color: var(--white); }
 
+/* Nav links */
 .navbar__links {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  list-style: none;
 }
 
 .navbar__link {
@@ -43,10 +46,10 @@
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  text-decoration: none;
   color: var(--white-dim);
-  transition: color 0.25s;
+  transition: color var(--transition-fast);
   position: relative;
+  padding-bottom: 2px;
 }
 .navbar__link::after {
   content: '';
@@ -54,23 +57,23 @@
   bottom: -3px; left: 0;
   width: 0; height: 1px;
   background: var(--gold);
-  transition: width 0.25s;
+  transition: width var(--transition-base);
 }
 .navbar__link:hover,
 .navbar__link--active { color: var(--white); }
 .navbar__link:hover::after,
 .navbar__link--active::after { width: 100%; }
 
+/* CTA button */
 .navbar__cta {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  text-decoration: none;
   color: var(--black);
   background: var(--gold);
   padding: 0.45rem 1.1rem;
-  border-radius: 2px;
-  transition: background 0.25s, transform 0.2s;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
 }
 .navbar__cta:hover {
@@ -78,7 +81,7 @@
   transform: translateY(-1px);
 }
 
-/* Burger */
+/* Burger (mobile) */
 .navbar__burger {
   display: none;
   flex-direction: column;
@@ -86,36 +89,48 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
+  border-radius: var(--radius-sm);
 }
 .navbar__burger span {
   display: block;
   width: 24px;
   height: 1.5px;
   background: var(--white);
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
 }
 .navbar__burger--open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.navbar__burger--open span:nth-child(2) { opacity: 0; }
+.navbar__burger--open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .navbar__burger--open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .navbar { padding: 1.2rem 1.5rem; }
-  .navbar--scrolled { padding: 0.9rem 1.5rem; }
   .navbar__burger { display: flex; }
+
   .navbar__links {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    background: var(--black-soft);
+    inset: 0;
+    background: rgba(8, 8, 8, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    height: 100vh;
+    gap: 2.5rem;
     transform: translateX(100%);
-    transition: transform 0.35s ease;
-    border-left: 1px solid var(--black-border);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    visibility: hidden;
   }
-  .navbar__links--open { transform: translateX(0); }
-  .navbar__link { font-size: 0.85rem; }
+  .navbar__links--open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  .navbar__link { font-size: 1rem; letter-spacing: 0.2em; }
+  .navbar__cta  { font-size: 0.85rem; padding: 0.6rem 1.4rem; }
+}
+
+/* ── Tablet ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar__links { gap: 1.8rem; }
 }

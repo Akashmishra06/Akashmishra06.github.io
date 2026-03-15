@@ -1,0 +1,162 @@
+/* ─────────────────────────────────────────────────────────────
+   Global Reset, Base Styles & Shared Utilities
+   ───────────────────────────────────────────────────────────── */
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+ul { list-style: none; }
+a  { text-decoration: none; }
+
+/* Focus visible for keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Text selection */
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar          { width: 4px; }
+::-webkit-scrollbar-track    { background: var(--black); }
+::-webkit-scrollbar-thumb    { background: var(--gold-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ── Shared layout ── */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+}
+
+.section {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  position: relative;
+}
+
+.section-divider {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  pointer-events: none;
+}
+
+/* ── Shared typography ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.gold-line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 2.5rem;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  50%       { box-shadow: 0 0 12px 4px rgba(74, 222, 128, 0.15); }
+}
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 var(--gold-glow); }
+  50%       { box-shadow: 0 0 24px 4px var(--gold-glow); }
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: var(--black-border); }
+  50%       { border-color: var(--gold-dim); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Hero entry animations ── */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-fade-up.delay-1 { animation-delay: 0.15s; }
+.animate-fade-up.delay-2 { animation-delay: 0.30s; }
+.animate-fade-up.delay-3 { animation-delay: 0.45s; }
+.animate-fade-up.delay-4 { animation-delay: 0.60s; }
+
+/* ── Scroll-reveal (IntersectionObserver) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
