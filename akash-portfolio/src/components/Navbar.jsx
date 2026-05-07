@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useScrolled } from '../hooks/useScrolled';
 import { NAV_LINKS, SOCIAL } from '../constants/data';
+import { downloadResume } from '../utils/generateResume';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -56,6 +57,15 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <button
+              className="navbar__resume-btn"
+              onClick={downloadResume}
+              aria-label="Download resume"
+            >
+              ⬇ Resume
+            </button>
+          </li>
           <li>
             <a
               href={SOCIAL.linkedin}

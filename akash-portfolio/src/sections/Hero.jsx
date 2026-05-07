@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useMemo, memo } from 'react';
 import { TICKER_ITEMS, PERSONAL, SOCIAL } from '../constants/data';
 import { createParticles, tickParticle } from '../utils/canvas';
+import { downloadResume } from '../utils/generateResume';
 import './Hero.css';
 
 // Memoised ticker so it never re-renders after mount
@@ -186,6 +187,13 @@ export default function Hero() {
             <a href="#contact" className="hero__btn hero__btn--ghost">
               Get in Touch
             </a>
+            <button
+              onClick={downloadResume}
+              className="hero__btn hero__btn--resume"
+              aria-label="Download resume"
+            >
+              ⬇ Resume
+            </button>
             <a
               href={SOCIAL.github}
               target="_blank"

@@ -140,6 +140,38 @@
   color: var(--white);
   transform: translateY(-2px);
 }
+.hero__btn--resume {
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.hero__btn--resume::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+.hero__btn--resume span,
+.hero__btn--resume {
+  position: relative;
+  z-index: 1;
+}
+.hero__btn--resume:hover {
+  color: var(--black);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.25);
+}
+.hero__btn--resume:hover::before {
+  transform: scaleX(1);
+}
 .hero__btn--icon {
   border: 1px solid var(--black-border);
   color: var(--white-muted);

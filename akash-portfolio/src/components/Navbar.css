@@ -64,6 +64,32 @@
 .navbar__link:hover::after,
 .navbar__link--active::after { width: 100%; }
 
+/* Resume download button */
+.navbar__resume-btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 0.42rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: transparent;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.navbar__resume-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.25);
+}
+
 /* CTA button */
 .navbar__cta {
   font-family: var(--font-mono);
